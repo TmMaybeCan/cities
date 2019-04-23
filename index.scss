@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    @mixin cursor {
+        cursor: pointer;
+    }
+    @mixin description-config {
+        text-align: center;
+        user-select: none;
+    }
+    #wrapper-tabs {
+        .tabs-container {
+            border: .3px solid #ddd;
+            overflow: hidden;
+            background-color: #f6f6f6;
+            display: flex;
+            flex-wrap: wrap;
+            width: 30%;
+            padding: 0;
+            margin: 0;
+            .tab-links {
+                float: left;
+                border: none;
+                padding: 10px;
+                transition: all .3s;
+                font-family: "Kodchasan", sans-serif;
+                flex-grow: 1;
+                border-left: .5px solid #fff;
+                transition: .3s;
+                @include cursor;
+                &:active {
+                    outline: none;
+                }
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    color: #fff;
+                    background-color: rgb(250, 108, 108);
+                }
+            }
+        }
+        .tab-content {
+            animation: fade 1.5s;
+            display: none;
+            width: 30%;
+            transition: display .5s;
+            h4 {
+                @include description-config;
+            }
+            p {
+                @include description-config;
+            }
+            .close{
+                float: right;
+                font-size: 28px;
+                transition: color, .1s;
+                line-height: 12px;
+                &:hover {
+                    color: rgb(250, 105, 105);
+                    @include cursor;
+                }
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+    }
+    
+}
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
